@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 86b0e1f3a4e111a488d54ccbae382609
+guid: 09933657f475d5c47ba8bb89eac12e9a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5778814796308311598
-    second: Fire_hydrant_3_0
+      213: -7538366552913048890
+    second: dispay_case_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Fire_hydrant_3_0
+      name: dispay_case_0
       rect:
         serializedVersion: 2
-        x: 12
-        y: 12
-        width: 34
-        height: 34
+        x: 0
+        y: 5
+        width: 32
+        height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2d1954b6f868dcfa0800000000000000
-      internalID: -5778814796308311598
+      spriteID: 6ca8ee26f87526790800000000000000
+      internalID: -7538366552913048890
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Fire_hydrant_3_0: -5778814796308311598
+      dispay_case_0: -7538366552913048890
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

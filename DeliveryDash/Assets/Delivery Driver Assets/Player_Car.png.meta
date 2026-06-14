@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 86b0e1f3a4e111a488d54ccbae382609
+guid: 1b7c4fb0a574bc4448b1f1ab3b3da95f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5778814796308311598
-    second: Fire_hydrant_3_0
+      213: -1676283929174353337
+    second: Player_Car_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Fire_hydrant_3_0
+      name: Player_Car_0
       rect:
         serializedVersion: 2
-        x: 12
-        y: 12
-        width: 34
-        height: 34
+        x: 0
+        y: 0
+        width: 64
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2d1954b6f868dcfa0800000000000000
-      internalID: -5778814796308311598
+      spriteID: 74addd2d5a4acb8e0800000000000000
+      internalID: -1676283929174353337
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Fire_hydrant_3_0: -5778814796308311598
+      Player_Car_0: -1676283929174353337
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

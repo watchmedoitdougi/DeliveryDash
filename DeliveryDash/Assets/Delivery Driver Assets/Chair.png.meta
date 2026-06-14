@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 86b0e1f3a4e111a488d54ccbae382609
+guid: b8d76ff93ad9f5f419e25a558466785b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5778814796308311598
-    second: Fire_hydrant_3_0
+      213: 5843985864524226762
+    second: Chair_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Fire_hydrant_3_0
+      name: Chair_0
       rect:
         serializedVersion: 2
-        x: 12
+        x: 11
         y: 12
-        width: 34
-        height: 34
+        width: 11
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2d1954b6f868dcfa0800000000000000
-      internalID: -5778814796308311598
+      spriteID: ac0ee575e220a1150800000000000000
+      internalID: 5843985864524226762
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Fire_hydrant_3_0: -5778814796308311598
+      Chair_0: 5843985864524226762
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
