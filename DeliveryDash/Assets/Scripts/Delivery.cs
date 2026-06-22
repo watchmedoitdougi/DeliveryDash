@@ -2,19 +2,21 @@ using UnityEngine;
 
 public class Delivery : MonoBehaviour
 {
-    [SerializeField] Color32 hasPizzaColor = new Color32 (1, 1, 1, 1);
-    [SerializeField] Color32 noPizzaColor = new Color32 (1, 1, 1, 1);
+    [SerializeField] Color32 topperOnColor = new Color32(255, 255, 0, 255);
+    [SerializeField] Color32 topperOffColor = new Color32(255, 255, 255, 255);
 
     [SerializeField] float destroyDelay = 0.5f;
-    bool Pizza;
 
-    SpriteRenderer spriteRenderer;
+    bool hasPizza;
+
+    [SerializeField] SpriteRenderer topperRenderer;
+    [SerializeField] GameObject pizzaPickupParticles;
+    [SerializeField] GameObject carTopperParticles;
 
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();    
+        topperRenderer.color = topperOffColor;
     }
-    
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -22,7 +24,21 @@ public class Delivery : MonoBehaviour
         {
             Debug.Log("You picked up the Pizza!");
             hasPizza = true;
-            spriteRenderer.color = hasPizzaColor;
+
+            topperRenderer.color = topperOnColor;
+
+            Instantiate(
+                pizzaPickupParticles,
+                other.transform.position,
+                Quaternion.identity
+            );
+
+            Instantiate(
+                carTopperParticles,
+                other.transform.position,
+                Quaternion.identity
+                );
+
             Destroy(other.gameObject, destroyDelay);
         }
 
@@ -30,8 +46,8 @@ public class Delivery : MonoBehaviour
         {
             Debug.Log("You delivered the Pizza!");
             hasPizza = false;
-            spriteRenderer.color = noPizzaColor;
-        }
 
+            topperRenderer.color = topperOffColor;
+        }
     }
 }
