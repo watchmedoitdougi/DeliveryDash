@@ -11,7 +11,7 @@ public class Delivery : MonoBehaviour
 
     [SerializeField] SpriteRenderer topperRenderer;
     [SerializeField] GameObject pizzaPickupParticles;
-    [SerializeField] GameObject carTopperParticles;
+    [SerializeField] GameObject cashPickupParticles;
 
     void Start()
     {
@@ -33,12 +33,6 @@ public class Delivery : MonoBehaviour
                 Quaternion.identity
             );
 
-            Instantiate(
-                carTopperParticles,
-                other.transform.position,
-                Quaternion.identity
-                );
-
             Destroy(other.gameObject, destroyDelay);
         }
 
@@ -46,6 +40,14 @@ public class Delivery : MonoBehaviour
         {
             Debug.Log("You delivered the Pizza!");
             hasPizza = false;
+
+            Instantiate(
+               cashPickupParticles,
+               other.transform.position,
+               Quaternion.identity
+           );
+
+            Destroy(other.gameObject, destroyDelay);
 
             topperRenderer.color = topperOffColor;
         }
