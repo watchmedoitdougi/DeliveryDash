@@ -12,6 +12,7 @@ public class Delivery : MonoBehaviour
     [SerializeField] SpriteRenderer topperRenderer;
     [SerializeField] GameObject pizzaPickupParticles;
     [SerializeField] GameObject cashPickupParticles;
+    [SerializeField] DeliveryTimer deliveryManager;
 
     void Start()
     {
@@ -24,6 +25,7 @@ public class Delivery : MonoBehaviour
         {
             Debug.Log("You picked up the Pizza!");
             hasPizza = true;
+            deliveryManager.StartDelivery();
 
             topperRenderer.color = topperOnColor;
 
@@ -40,6 +42,8 @@ public class Delivery : MonoBehaviour
         {
             Debug.Log("You delivered the Pizza!");
             hasPizza = false;
+
+            deliveryManager.CompleteDelivery();
 
             Instantiate(
                cashPickupParticles,
