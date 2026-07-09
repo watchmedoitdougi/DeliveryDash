@@ -4,7 +4,6 @@ using UnityEngine;
 public class DeliveryTimer : MonoBehaviour
 {
     [SerializeField] TMP_Text timerText;
-    [SerializeField] float deliveryTime = 30f;
     [SerializeField] CashManager cashManager;
 
     float currentTime;
@@ -56,9 +55,9 @@ public class DeliveryTimer : MonoBehaviour
         }
     }
 
-    public void StartDelivery()
+    public void StartDelivery(float time)
     {
-        currentTime = deliveryTime;
+        currentTime = time;
         timerRunning = true;
 
         timerText.gameObject.SetActive(true);

@@ -28,10 +28,13 @@ public class PhoneMenu : MonoBehaviour
 
     PhoneScreen currentScreen = PhoneScreen.Home;
 
+    // Allows other scripts (like DeliveryMenu) to know
+    // which app is currently open.
+    public PhoneScreen CurrentScreen => currentScreen;
+
     void Start()
     {
         phoneMenu.SetActive(false);
-
         ShowHomeScreen();
     }
 
@@ -46,7 +49,7 @@ public class PhoneMenu : MonoBehaviour
         if (!isPaused)
             return;
 
-        // Return to Home Screen from any app
+        // Go back to the Home Screen
         if (Input.GetKeyDown(KeyCode.Backspace))
         {
             ShowHomeScreen();
@@ -54,11 +57,10 @@ public class PhoneMenu : MonoBehaviour
             return;
         }
 
-        // Only allow home screen navigation while on the home screen
+        // Only navigate app icons while on the Home Screen
         if (currentScreen != PhoneScreen.Home)
             return;
 
-        // Cursor Movement
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             if (currentSelection == 0) currentSelection = 1;
@@ -91,7 +93,7 @@ public class PhoneMenu : MonoBehaviour
             MoveCursor();
         }
 
-        // Open an app
+        // Open selected app
         if (Input.GetKeyDown(KeyCode.Return))
         {
             switch (currentSelection)
@@ -120,7 +122,6 @@ public class PhoneMenu : MonoBehaviour
         isPaused = !isPaused;
 
         phoneMenu.SetActive(isPaused);
-
         Time.timeScale = isPaused ? 0f : 1f;
 
         if (isPaused)
@@ -128,6 +129,18 @@ public class PhoneMenu : MonoBehaviour
             ShowHomeScreen();
             MoveCursor();
         }
+    }
+
+    public void ClosePhone()
+    {
+        isPaused = false;
+
+        phoneMenu.SetActive(false);
+        Time.timeScale = 1f;
+
+        // Reset for the next time the phone opens
+        ShowHomeScreen();
+        MoveCursor();
     }
 
     void ShowHomeScreen()

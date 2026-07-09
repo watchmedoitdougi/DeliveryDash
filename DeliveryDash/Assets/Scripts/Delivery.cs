@@ -5,14 +5,15 @@ public class Delivery : MonoBehaviour
     [SerializeField] Color32 topperOnColor = new Color32(255, 255, 0, 255);
     [SerializeField] Color32 topperOffColor = new Color32(255, 255, 255, 255);
 
-    [SerializeField] float destroyDelay = 0.5f;
+  
 
     bool hasPizza;
 
     [SerializeField] SpriteRenderer topperRenderer;
     [SerializeField] GameObject pizzaPickupParticles;
     [SerializeField] GameObject cashPickupParticles;
-    [SerializeField] DeliveryTimer deliveryManager;
+    [SerializeField] DeliveryTimer deliveryTimer;
+    [SerializeField] DeliveryManager deliveryManager;
 
     void Start()
     {
@@ -21,11 +22,13 @@ public class Delivery : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Pizza" && !hasPizza)
+        if (other.CompareTag("Pizza") && !hasPizza)
         {
             Debug.Log("You picked up the Pizza!");
+
             hasPizza = true;
-            deliveryManager.StartDelivery();
+
+            deliveryTimer.StartDelivery(45f);
 
             topperRenderer.color = topperOnColor;
 
@@ -35,23 +38,25 @@ public class Delivery : MonoBehaviour
                 Quaternion.identity
             );
 
-            Destroy(other.gameObject, destroyDelay);
+            other.gameObject.SetActive(false);
         }
 
-        if (other.tag == "Customer" && hasPizza)
+        if (other.CompareTag("Customer") && hasPizza)
         {
             Debug.Log("You delivered the Pizza!");
+
             hasPizza = false;
 
-            deliveryManager.CompleteDelivery();
+            deliveryTimer.CompleteDelivery();
+            deliveryManager.CompleteCurrentDelivery();
 
             Instantiate(
-               cashPickupParticles,
-               other.transform.position,
-               Quaternion.identity
-           );
+                cashPickupParticles,
+                other.transform.position,
+                Quaternion.identity
+            );
 
-            Destroy(other.gameObject, destroyDelay);
+            other.gameObject.SetActive(false);
 
             topperRenderer.color = topperOffColor;
         }
