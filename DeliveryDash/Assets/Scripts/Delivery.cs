@@ -12,7 +12,7 @@ public class Delivery : MonoBehaviour
     [SerializeField] SpriteRenderer topperRenderer;
     [SerializeField] GameObject pizzaPickupParticles;
     [SerializeField] GameObject cashPickupParticles;
-    [SerializeField] DeliveryTimer deliveryTimer;
+    [SerializeField] Timer deliveryTimer;
     [SerializeField] DeliveryManager deliveryManager;
 
     void Start()

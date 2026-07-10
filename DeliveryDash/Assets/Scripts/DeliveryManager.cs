@@ -2,15 +2,19 @@ using UnityEngine;
 
 public class DeliveryManager : MonoBehaviour
 {
-    [SerializeField] DeliveryData[] deliveries;
+    [SerializeField] private DeliveryData[] deliveries;
 
-    int currentDelivery = -1;
+    private int currentDelivery = -1;
 
-    void Start()
+    void Awake()
     {
-        if (deliveries.Length > 0)
+        for (int i = 0; i < deliveries.Length; i++)
         {
-            deliveries[0].unlocked = true;
+            if (!deliveries[i].isHeader)
+            {
+                deliveries[i].unlocked = true;
+                break;
+            }
         }
     }
 
@@ -26,7 +30,7 @@ public class DeliveryManager : MonoBehaviour
 
     public DeliveryData GetCurrentDelivery()
     {
-        if (currentDelivery < 0)
+        if (currentDelivery == -1)
             return null;
 
         return deliveries[currentDelivery];
@@ -34,18 +38,24 @@ public class DeliveryManager : MonoBehaviour
 
     public bool StartDelivery(int index)
     {
-        // Invalid index
-        if (index < 0 || index >= deliveries.Length)
+        if (HasActiveDelivery())
+        { 
+            Debug.Log("Already on a delivery.");
             return false;
+        }
 
-        // Already delivering something
-        if (currentDelivery != -1)
+        if (index < 0 || index >= deliveries.Length)
             return false;
 
         DeliveryData delivery = deliveries[index];
 
-        // Can't start locked or completed deliveries
-        if (!delivery.unlocked || delivery.completed)
+        if (delivery.isHeader)
+            return false;
+
+        if (!delivery.unlocked)
+            return false;
+
+        if (delivery.completed)
             return false;
 
         currentDelivery = index;
@@ -56,14 +66,14 @@ public class DeliveryManager : MonoBehaviour
         if (delivery.customer != null)
             delivery.customer.SetActive(true);
 
-        Debug.Log("Started delivery: " + delivery.deliveryName);
+        Debug.Log("Started " + delivery.displayName);
 
         return true;
     }
 
     public void CompleteCurrentDelivery()
     {
-        if (currentDelivery == -1)
+        if (!HasActiveDelivery())
             return;
 
         DeliveryData delivery = deliveries[currentDelivery];
@@ -78,18 +88,29 @@ public class DeliveryManager : MonoBehaviour
 
         UnlockNextDelivery();
 
-        Debug.Log("Completed delivery: " + delivery.deliveryName);
+        Debug.Log("Completed " + delivery.displayName);
 
         currentDelivery = -1;
+
+        DeliveryApp app = FindFirstObjectByType<DeliveryApp>();
+
+        if (app != null)
+        {
+            app.Refresh();
+        }
     }
 
     void UnlockNextDelivery()
     {
         for (int i = 0; i < deliveries.Length; i++)
         {
-            if (!deliveries[i].unlocked)
+            DeliveryData delivery = deliveries[i];
+
+            if (!delivery.isHeader &&
+                !delivery.unlocked &&
+                !delivery.completed)
             {
-                deliveries[i].unlocked = true;
+                delivery.unlocked = true;
                 break;
             }
         }

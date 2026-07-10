@@ -173,6 +173,13 @@ public class PhoneMenu : MonoBehaviour
         policeMenu.SetActive(false);
         settingsMenu.SetActive(false);
 
+        DeliveryApp app = deliveryMenu.GetComponent<DeliveryApp>();
+
+        if (app != null)
+        {
+            app.enabled = false;
+            app.enabled = true;
+        }
         currentScreen = PhoneScreen.Delivery;
     }
 

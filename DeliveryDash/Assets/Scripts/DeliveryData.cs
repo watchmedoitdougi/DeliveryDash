@@ -3,15 +3,15 @@ using UnityEngine;
 [System.Serializable]
 public class DeliveryData
 {
-    [Header("Info")]
-    public string deliveryName;
-    public string pizzaShop;
+    [Header("Display")]
+    public bool isHeader;
 
-    [Header("Scene Objects")]
+    public string displayName;
+
+    [Header("Delivery")]
     public GameObject pizzaPickup;
     public GameObject customer;
 
-    [Header("Settings")]
     public float timeLimit = 45f;
 
     [HideInInspector]
