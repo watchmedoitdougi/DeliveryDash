@@ -116,13 +116,13 @@ TextureImporter:
       name: Green_light_0
       rect:
         serializedVersion: 2
-        x: 33
-        y: 72
+        x: 32
+        y: 73
         width: 107
         height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 86, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 516153b01d4d2dc4b9fbef245846d69f
     internalID: 0
     vertices: []
     indices: 
