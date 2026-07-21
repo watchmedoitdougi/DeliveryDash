@@ -57,6 +57,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3690075915372834559, guid: 0f834edc09c1e0a46987e19016ea385c, type: 3}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690075915372834559, guid: 0f834edc09c1e0a46987e19016ea385c, type: 3}
       propertyPath: m_Constraints
       value: 7
       objectReference: {fileID: 0}
@@ -93,8 +97,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9194792914816734994, guid: 0f834edc09c1e0a46987e19016ea385c, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9194792914816734994, guid: 0f834edc09c1e0a46987e19016ea385c, type: 3}
       propertyPath: m_CompositeOperation
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9194792914816734994, guid: 0f834edc09c1e0a46987e19016ea385c, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 9194792914816734994, guid: 0f834edc09c1e0a46987e19016ea385c, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
